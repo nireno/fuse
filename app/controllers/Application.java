@@ -26,4 +26,16 @@ public class Application extends Controller {
     result.put("activities", Json.toJson(activities));
     return ok(result);
   }
+
+  @BodyParser.Of(BodyParser.Json.class)
+  public static Result createActivity() {
+    JsonNode json = request().body().asJson();
+    Activity activity = Json.fromJson(json, Activity.class);
+    System.out.println(activity.task);
+    activity.save();
+    ObjectNode result = Json.newObject();
+    result.put("status", "OK");
+    result.put("action", "New activity added.");
+    return ok(result);
+  }
 }

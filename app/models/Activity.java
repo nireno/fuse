@@ -3,11 +3,15 @@ import java.util.*;
 import javax.persistence.*;
 
 import play.db.ebean.Model.*;
+import play.db.ebean.Model;
 import play.data.format.*;
 import play.data.validation.*;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @Entity
-public class Activity {
+public class Activity extends Model {
 
   @Id
   public int id;
@@ -24,13 +28,4 @@ public class Activity {
 
   public static Finder<Long, Activity> find = new Finder<Long, Activity>(Long.class, Activity.class);
 
-  public static List<Activity> all() {
-    return new ArrayList<Activity>();
-  }
-
-  public static void create(Activity activity){
-  }
-
-  public static void delete(Long id){
-  }
 }
