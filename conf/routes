@@ -10,4 +10,6 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Timeslice
 GET     /activity                   controllers.Application.activity()
-POST    /activity                   controllers.Application.createActivity()
+PUT     /activity                   controllers.Application.createActivity()
+POST    /activity/:id               controllers.Application.updateActivity(id: Integer)
+DELETE  /activity/:id               controllers.Application.deleteActivity(id: Integer)

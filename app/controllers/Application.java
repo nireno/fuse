@@ -22,7 +22,6 @@ public class Application extends Controller {
   public static Result activity() {
     ObjectNode result = Json.newObject();
     List<Activity> activities = Activity.find.all();
-    result.put("status", "OK");
     result.put("activities", Json.toJson(activities));
     return ok(result);
   }
@@ -31,11 +30,25 @@ public class Application extends Controller {
   public static Result createActivity() {
     JsonNode json = request().body().asJson();
     Activity activity = Json.fromJson(json, Activity.class);
-    System.out.println(activity.task);
     activity.save();
     ObjectNode result = Json.newObject();
-    result.put("status", "OK");
     result.put("action", "New activity added.");
+    return ok(result);
+  }
+
+  public static Result updateActivity(int id) {
+    JsonNode json = request().body().asJson();
+    Activity activity = Json.fromJson(json, Activity.class);
+    activity.update(id);
+    ObjectNode result = Json.newObject();
+    result.put("action", "Activity updated.");
+    return ok(result);
+  }
+
+  public static Result deleteActivity(int id) {
+    Activity.find.byId(id).delete();
+    ObjectNode result = Json.newObject();
+    result.put("action", "Activity deleted.");
     return ok(result);
   }
 }
