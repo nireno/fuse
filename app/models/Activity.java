@@ -16,16 +16,19 @@ public class Activity extends Model {
   @Id
   public int id;
 
+  @Lob
+  @Constraints.Required
+  public String summary;
+
   @Formats.DateTime(pattern="yyyy/MM/dd hh:mm")
   public Date time_start;
 
   @Formats.DateTime(pattern="yyyy/MM/dd hh:mm")
   public Date time_end;
 
-  @Lob
-  @Constraints.Required
-  public String task;
+  public String project;
 
-  public static Finder<Long, Activity> find = new Finder<Long, Activity>(Long.class, Activity.class);
+  public String type; //Design, Development, Unavoidable etc.
 
+  public static Finder<Integer, Activity> find = new Finder<Integer, Activity>(Integer.class, Activity.class);
 }
