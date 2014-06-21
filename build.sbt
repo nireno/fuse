@@ -3,7 +3,7 @@ name := "timetracker"
 version := "1.0-SNAPSHOT"
 
 libraryDependencies ++= Seq(
-  "postgresql" % "postgresql" % "9.1-902.jdbc4",
+  "mysql" % "mysql-connector-java" % "5.1.18",
   javaJdbc,
   javaEbean,
   cache
