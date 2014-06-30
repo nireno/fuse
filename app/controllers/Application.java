@@ -30,6 +30,7 @@ public class Application extends Controller {
   public static Result createActivity() {
     JsonNode json = request().body().asJson();
     Activity activity = Json.fromJson(json, Activity.class);
+    System.out.println(activity.description);
     activity.save();
     ObjectNode result = Json.newObject();
     result.put("action", "New activity added.");

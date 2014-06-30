@@ -16,10 +16,6 @@ public class Activity extends Model {
   @Id
   public int id;
 
-  @Lob
-  @Constraints.Required
-  public String summary;
-
   @Formats.DateTime(pattern="yyyy/MM/dd hh:mm")
   public Date time_start;
 
@@ -27,8 +23,12 @@ public class Activity extends Model {
   public Date time_end;
 
   public String project;
-
   public String type; //Design, Development, Unavoidable etc.
+  
+  @Lob
+  @Constraints.Required
+  public String description;
+
 
   public static Finder<Integer, Activity> find = new Finder<Integer, Activity>(Integer.class, Activity.class);
 }
