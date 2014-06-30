@@ -1,6 +1,2 @@
-create table activity (
-  id serial primary key,
-  time_start timestamp, 
-  time_end timestamp,
-  task text
-);
+create database if not exists fuse;
+grant all on fuse.* to fuse identified by 'fuse';
