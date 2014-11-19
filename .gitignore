@@ -1,3 +1,5 @@
+# Ignore IntelliJ Idea #
+.idea
 # Ignore Play! working directory #
 conf/evolutions
 bin/
